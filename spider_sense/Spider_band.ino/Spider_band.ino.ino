@@ -6,49 +6,44 @@
 #define TRIG2 51
 SR04 sr04 = SR04(ECHO_PIN,TRIG_PIN);
 
-#define MAX_CHANGE 300
+#define MAX_DISTANCE 220
 
-SR04 sensor2 = SR04(ECHO2, TRIG2);
+//SR04 sensor2 = SR04(ECHO2, TRIG2);
 
 
-long newDistance;
-long oldDistance;
+long distance1;
+long oldDistance1;
 
 void setup() {
    Serial.begin(9600);
    delay(1000);
-  oldDistance = sr04.Distance();
+
+
 }
 
 
 //max range for the sensor is 200centimeters
 void loop() {
-<<<<<<< HEAD
-   // a=sr04.Distance();
-   // Serial.print(a);
-   // Serial.println("cm");
-   // delay(1000);
-=======
 
 
-  newDistance=sr04.Distance();
+  distance1 = sr04.Distance();
    
-  if(abs(newDistance - oldDistance) < MAX_CHANGE)
+  if(distance1 < MAX_DISTANCE)
   {
-    Serial.print(newDistance);
+
+    Serial.print(distance1);
     Serial.println("cm");
     delay(100);
   }
    
 
+  
+  
+
   // b=sensor2.Distance();
   // Serial.print(b);
   // Serial.println("cm ---------------");
   // delay(1000)
-  
-  
-  
 
->>>>>>> b34d53dd7af00257c40fa3d2fb6db720137a82f7
 
 }
