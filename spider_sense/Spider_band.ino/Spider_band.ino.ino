@@ -23,6 +23,12 @@ void setup() {
 
 //max range for the sensor is 200centimeters
 void loop() {
+<<<<<<< HEAD
+   // a=sr04.Distance();
+   // Serial.print(a);
+   // Serial.println("cm");
+   // delay(1000);
+=======
 
 
   newDistance=sr04.Distance();
@@ -43,5 +49,6 @@ void loop() {
   
   
 
+>>>>>>> b34d53dd7af00257c40fa3d2fb6db720137a82f7
 
 }
