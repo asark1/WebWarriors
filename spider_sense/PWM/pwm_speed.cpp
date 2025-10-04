@@ -8,12 +8,12 @@ void level0_speed(int pin)
 
 void level1_speed(int pin)
 {
-    analogWrite(pin, 123);
+    analogWrite(pin, 50);
 }
 
 void level2_speed(int pin)
 {
-    analogWrite(pin, 191);
+    analogWrite(pin, 153);
 }
 
 void level3_speed(int pin)

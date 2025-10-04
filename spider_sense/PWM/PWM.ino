@@ -7,6 +7,7 @@ int motor8 = 8;      // motor connected to digital pin 8
 int motor10 = 10;      // motor connected to digital pin 8
 int analogPin = A0;  // potentiometer connected to analog pin A0
 int val = 122;         // variable to store the read value
+int i = 0;
 
 void setup() {
   pinMode(motor2, OUTPUT);  // sets the pin as output
@@ -23,10 +24,14 @@ void loop() {
   level2_speed(motor6);
   level3_speed(motor8);
 
-  level0_speed(motor10);
-  delay(3000); 
-  level1_speed(motor10);
-  delay(3000); 
-  level3_speed(motor10);
-  delay(3000); 
+  while(1)
+  {
+    analogWrite(motor10, i);
+    delay(100);
+    i += 2;
+    if (i >= 255)
+    {
+      i = 0;
+    }
+  }
 }
