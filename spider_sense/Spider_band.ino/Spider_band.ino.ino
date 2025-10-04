@@ -10,11 +10,10 @@ void setup() {
 }
 
 void loop() {
-   a=sr04.Distance();
-   Serial.print(a);
-   Serial.println("cm");
-   delay(1000);
-
+   // a=sr04.Distance();
+   // Serial.print(a);
+   // Serial.println("cm");
+   // delay(1000);
 
    
 }
