@@ -180,170 +180,106 @@ long filteredDistance5()
 
 
 //max range for the sensor is 200centimeters
+// void loop() {
+
+//   int motorBlock = 0b00000;
+
+
+//   //SENSOR 1 AND MOTOR 1 BLOCK
+//   filteredDist1 = filteredDistance1();
+//   if(filteredDist1 < MAX_DISTANCE)
+//   {
+//     Serial.print("\n filtered: ");
+//     Serial.print(filteredDist1);
+//     Serial.println("cm");
+
+//     if(motorBlock == 0)
+//     {
+//       if(filteredDist1 < 30)
+//       {
+//         level3_speed(PWM1);
+//       }
+//       else if(filteredDist1 < 100)
+//       {
+//         level2_speed(PWM1);
+//       }
+//       else if(filteredDist1 < 150)
+//       {
+//         level1_speed(PWM1);
+//       }
+//       else
+//       {
+//         level0_speed(PWM1);
+//       }
+//       motorBlock = 0b00001;
+//     }
+//   }
+
+
+//   // //SENSOR 2 AND MOTOR 2 BLOCK
+//   filteredDist2 = filteredDistance2();
+//   if(filteredDist2 < MAX_DISTANCE)
+//   {
+//     Serial.print("\n filtered: ");
+//     Serial.print(filteredDist2);
+//     Serial.println("cm");
+
+//     if(motorBlock == 0)
+//     {
+//       if(filteredDist2 < 30)
+//       {
+//         level3_speed(PWM2);
+//       }
+//       else if(filteredDist2 < 100)
+//       {
+//         level2_speed(PWM2);
+//       }
+//       else if(filteredDist2 < 150)
+//       {
+//         level1_speed(PWM2);
+//       }
+//       else
+//       {
+//         level0_speed(PWM2);
+//       }
+//       motorBlock = 0b00010;
+//     }
+//   }
+
+  
+//   delay(100);
+
+
+// }
+
 void loop() {
-
-  int motorBlock = 0b00000;
-
-
-  // //SENSOR 1 AND MOTOR 1 BLOCK
-  // filteredDist1 = filteredDistance1();
-  // if(filteredDist1 < MAX_DISTANCE)
-  // {
-  //   Serial.print("\n filtered1: ");
-  //   Serial.print(filteredDist1);
-  //   Serial.println("cm");
-
-  //   if(motorBlock == 0)
-  //   {
-  //     if(filteredDist1 < 30)
-  //     {
-  //       level3_speed(PWM1);
-  //     }
-  //     else if(filteredDist1 < 100)
-  //     {
-  //       level2_speed(PWM1);
-  //     }
-  //     else if(filteredDist1 < 150)
-  //     {
-  //       level1_speed(PWM1);
-  //     }
-  //     else
-  //     {
-  //       level0_speed(PWM1);
-  //     }
-  //     motorBlock = 0b00001;
-  //   }
-  // }
-
-
-  // //SENSOR 2 AND MOTOR 2 BLOCK
-  // filteredDist2 = filteredDistance2();
-  // if(filteredDist2 < MAX_DISTANCE)
-  // {
-  //   Serial.print("\n filtered2: ");
-  //   Serial.print(filteredDist2);
-  //   Serial.println("cm");
-
-  //   if(motorBlock == 0)
-  //   {
-  //     if(filteredDist2 < 30)
-  //     {
-  //       level3_speed(PWM2);
-  //     }
-  //     else if(filteredDist2 < 100)
-  //     {
-  //       level2_speed(PWM2);
-  //     }
-  //     else if(filteredDist2 < 150)
-  //     {
-  //       level1_speed(PWM2);
-  //     }
-  //     else
-  //     {
-  //       level0_speed(PWM2);
-  //     }
-  //     motorBlock = 0b00010;
-  //   }
-  // }
-
-  // //SENSOR 3 AND MOTOR 3 BLOCK
-  // filteredDist3 = filteredDistance3();
-  // if(filteredDist3 < MAX_DISTANCE)
-  // {
-  //   Serial.print("\n filtered3: ");
-  //   Serial.print(filteredDist3);
-  //   Serial.println("cm");
-  
-  //   if(motorBlock == 0)
-  //   {
-  //     if(filteredDist3 < 30)
-  //     {
-  //       level3_speed(PWM3);
-  //     }
-  //     else if(filteredDist3 < 100)
-  //     {
-  //       level2_speed(PWM3);
-  //     }
-  //     else if(filteredDist3 < 150)
-  //     {
-  //       level1_speed(PWM3);
-  //     }
-  //     else
-  //     {
-  //       level0_speed(PWM3);
-  //     }
-  //     motorBlock = 0b00100;
-  //   }
-  // }
-
-
-    //SENSOR 4 AND MOTOR 4 BLOCK
-  filteredDist4 = filteredDistance4();
-  if(filteredDist4 < MAX_DISTANCE)
-  {
-    Serial.print("\n filtered4: ");
-    Serial.print(filteredDist4);
+  // SENSOR 1 ↔ MOTOR 1
+  filteredDist1 = filteredDistance1();
+  if (filteredDist1 < MAX_DISTANCE) {
+    Serial.print("\n filtered: ");
+    Serial.print(filteredDist1);
     Serial.println("cm");
-
-    if(motorBlock == 0)
-    {
-      if(filteredDist4 < 30)
-      {
-        level3_speed(PWM4);
-      }
-      else if(filteredDist4 < 100)
-      {
-        level2_speed(PWM4);
-      }
-      else if(filteredDist4 < 150)
-      {
-        level1_speed(PWM4);
-      }
-      else
-      {
-        level0_speed(PWM4);
-      }
-      motorBlock = 0b01000;
-    }
-
+    if (filteredDist1 < 30)       level3_speed(PWM1);
+    else if (filteredDist1 < 100) level2_speed(PWM1);
+    else if (filteredDist1 < 150) level1_speed(PWM1);
+    else                          level0_speed(PWM1);
+  } else {
+    level0_speed(PWM1);
   }
-  
 
-    //SENSOR 5 AND MOTOR 5 BLOCK
-  filteredDist5 = filteredDistance5();
-  if(filteredDist5 < MAX_DISTANCE)
-  {
-    Serial.print("\n filtered5: ");
-    Serial.print(filteredDist5);
+  // SENSOR 2 ↔ MOTOR 2
+  filteredDist2 = filteredDistance2();
+  if (filteredDist2 < MAX_DISTANCE) {
+    Serial.print("\n filtered: ");
+    Serial.print(filteredDist2);
     Serial.println("cm");
-
-    if(motorBlock == 0)
-    {
-      if(filteredDist5 < 30)
-      {
-        level3_speed(PWM5);
-      }
-      else if(filteredDist5 < 100)
-      {
-        level2_speed(PWM5);
-      }
-      else if(filteredDist5 < 150)
-      {
-        level1_speed(PWM5);
-      }
-      else
-      {
-        level0_speed(PWM5);
-      }
-      motorBlock = 0b10000;
-    }
+    if (filteredDist2 < 30)       level3_speed(PWM2);
+    else if (filteredDist2 < 100) level2_speed(PWM2);
+    else if (filteredDist2 < 150) level1_speed(PWM2);
+    else                          level0_speed(PWM2);
+  } else {
+    level0_speed(PWM2);
   }
-   
-  // Serial.print("\nMOtorblock: ");
-  // Serial.print(motorBlock);
-  // Serial.print("\n");
-  
+
   delay(100);
-
-
 }
